@@ -25,7 +25,8 @@ cancelBtn.addEventListener('click', (e) => {
     dialog.close();
 });
 
-const myLibrary = [];
+
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -39,9 +40,13 @@ function addBookToLirary(book) {
 };
 
 function displayBooks() {
+    while (bookContainer.firstChild) {
+        bookContainer.removeChild(bookContainer.firstChild);
+    }
     for (const book of myLibrary) {
         const card = document.createElement('div');
         card.classList.add('card');
+        card.setAttribute('data_book_num', myLibrary.indexOf(book))
         if (book.read) {
             reading_status = 'Read'
             reading_status_class = 'read'
@@ -49,7 +54,6 @@ function displayBooks() {
             reading_status = 'Not read'
             reading_status_class = 'not-read'
         }
-        
         card.innerHTML = `
             <div class="book-title">${book.title}</div>
             <div class="author">${book.author}</div>
@@ -60,6 +64,21 @@ function displayBooks() {
         
         bookContainer.appendChild(card);
     }
+
+    const removeBook = document.querySelectorAll('.remove');
+    removeBook.forEach(button => {
+        button.addEventListener('click', (e) =>{
+                const container = e.target.closest('.card')
+                if (container) {
+                    const bookId = Number(container.getAttribute('data_book_num'));
+                    console.log(myLibrary[0])
+                    myLibrary.splice(bookId, 1)
+                    container.remove();
+                    console.log(bookId)
+                }
+                displayBooks();
+        })
+    });
     
 };
 

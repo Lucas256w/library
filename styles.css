@@ -148,7 +148,8 @@ button {
     padding: var(--spacing-sm);
 }
 .read,
-.remove {
+.remove,
+.not-read {
     color: inherit;
     font-size: inherit;
     padding: 15px 0;
