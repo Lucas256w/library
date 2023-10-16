@@ -184,8 +184,8 @@ dialog {
     background-color: var(--grey);
 }
 
-::backdrop {
-    background-color: var(--black);
+dialog::backdrop {
+    background-color: #1E2022;
     opacity: 0.75;
 }
 
