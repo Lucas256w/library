@@ -57,16 +57,21 @@ footer {
 /* HEADER */
 
 header {
+    /* Allows for box shadow */
     z-index: 1;
-    box-shadow: 0 2.5px 5px var(--dark-grey);
+    box-shadow: 0 1.5px 5px var(--dark-grey);
+
     display: flex;
     justify-content: center;
 }
 
 #title {
+    /* grows the container to max (1200px) */
     flex: 1;
     max-width: var(--container-width);
     padding: 20px 25px;
+
+    /* set title center vertically */
     display: flex;
     align-items: center;
     font-weight: 800;
@@ -78,8 +83,12 @@ header {
 /* MAIN CONTENT */
 
 main {
+    /* lets mainbody take allavaible space on screen */
     flex: 1;
+
+    /* centers button */
     text-align: center;
+
     padding: var(--spacing-sm);
     background-color: var(--grey);
 }
@@ -90,13 +99,16 @@ main {
     margin: 25px 0;
 }
 
+/* use grid display to show books */
 #books-container {
-    margin: 0 auto;
+    margin: 0 auto var(--spacing-lg);
     max-width: var(--container-width);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--spacing-xl);
 }
+
+/* card that hold book infor settings */
 .card {
     background-color: var(--white);
     border-radius: var(--border-radius);
@@ -107,7 +119,7 @@ main {
     font-size: 1.5rem;
     gap: var(--spacing-md);
 
-    box-shadow: 2.5px 2.5px 5px var(--dark-grey);
+    box-shadow: 1.5px 1.5px 5px var(--dark-grey);
 }
 
 /* FOOTER */
@@ -116,7 +128,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 -2.5px 5px var(--dark-grey);
+    box-shadow: 0 -1.5px 5px var(--dark-grey);
     padding: var(--spacing-md);
 }
 

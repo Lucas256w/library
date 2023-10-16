@@ -9,10 +9,15 @@ let read_input = document.querySelector('#read-checkbox');
 const bookContainer = document.querySelector('#books-container');
 const duplicateErrorMessage = document.querySelector('#duplicate-book-error')
 
+// STORES ALL BOOK IN ARRAY
+let myLibrary = [];
+
+// add book button plays modal
 addBook.addEventListener('click', () => {
     dialog.showModal();
 });
 
+// upload book, dont and show error if book title already exist
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
     for (let books of myLibrary) {
@@ -25,12 +30,15 @@ submitBtn.addEventListener('click', (e) => {
     }
 
     const book = new Book(bookTitle_input.value, author_input.value, pages_input.value, read_input.checked)
+    
     resetInputs()
     addBookToLirary(book);
     displayBooks();
     dialog.close()
 });
 
+
+// Exits out of modal, doesn't upload anythin
 cancelBtn.addEventListener('click', (e) => {
     e.preventDefault();
     resetInputs()
@@ -39,10 +47,7 @@ cancelBtn.addEventListener('click', (e) => {
 });
 
 
-let myLibrary = [];
-
-
-
+// Book object function
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -50,6 +55,7 @@ function Book(title, author, pages, read) {
     this.read = read;
 };
 
+// append book to storage
 function addBookToLirary(book) {
     myLibrary.push(book)
 };
@@ -61,6 +67,8 @@ function resetInputs() {
     read_input.checked = false;
 }
 
+
+// shows all books in array in the diplay container
 function displayBooks() {
     while (bookContainer.firstChild) {
         bookContainer.removeChild(bookContainer.firstChild);
@@ -87,6 +95,8 @@ function displayBooks() {
         bookContainer.appendChild(card);
     }
 
+
+    // remove button settings, deletes ook object fro array on visibily on the web
     const removeBook = document.querySelectorAll('.remove');
     removeBook.forEach(button => {
         button.addEventListener('click', (e) =>{
@@ -100,6 +110,7 @@ function displayBooks() {
         })
     });
     
+    // read or not button toggle, also makes sure to update book object
     const read_button = document.querySelectorAll('.read-or-not');
     read_button.forEach(button => {
         button.addEventListener('click', (e) => {
