@@ -110,7 +110,7 @@ function displayBooks() {
         })
     });
     
-    // read or not button toggle, also makes sure to update book object
+    // read or not button toggle, also makes sure to update book object 'read' boolean
     const read_button = document.querySelectorAll('.read-or-not');
     read_button.forEach(button => {
         button.addEventListener('click', (e) => {
