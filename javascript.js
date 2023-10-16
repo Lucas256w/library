@@ -19,6 +19,9 @@ addBook.addEventListener('click', () => {
 
 // upload book, dont and show error if book title already exist
 submitBtn.addEventListener('click', (e) => {
+    if (bookTitle_input.value == '' || author_input.value == '' || pages_input.value ==''){
+        return
+    }
     e.preventDefault();
     for (let books of myLibrary) {
         if (bookTitle_input.value == books.title) {
