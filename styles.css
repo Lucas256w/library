@@ -58,7 +58,7 @@ footer {
 
 header {
     z-index: 1;
-    box-shadow: 0 2.5px 10px var(--dark-grey);
+    box-shadow: 0 2.5px 5px var(--dark-grey);
     display: flex;
     justify-content: center;
 }
@@ -93,7 +93,6 @@ main {
 #books-container {
     margin: 0 auto;
     max-width: var(--container-width);
-    border: 2px solid black;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--spacing-xl);
@@ -107,6 +106,8 @@ main {
     padding: var(--spacing-md);
     font-size: 1.5rem;
     gap: var(--spacing-md);
+
+    box-shadow: 2.5px 2.5px 5px var(--dark-grey);
 }
 
 /* FOOTER */
@@ -115,7 +116,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 -2.5px 10px var(--dark-grey);
+    box-shadow: 0 -2.5px 5px var(--dark-grey);
     padding: var(--spacing-md);
 }
 
@@ -126,10 +127,6 @@ button {
     border: none;
     border-radius: var(--border-radius);
     font-family: inherit;
-}
-
-button:hover {
-    cursor: pointer;
 }
 
 #submit-button,
@@ -199,11 +196,23 @@ dialog::backdrop {
     font-weight: 100;
 }
 
+#duplicate-book-error {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+
+    display: none;
+}
+
 input[type=checkbox] {
     width: 20px;
     height: 20px;
     margin-top: 4px;
     accent-color: var(--black);
+}
+
+input:focus {
+    outline: none;
 }
 
 form {

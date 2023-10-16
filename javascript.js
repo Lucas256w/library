@@ -2,11 +2,12 @@ const addBook = document.querySelector('#add-book-button');
 const dialog = document.querySelector('dialog');
 const submitBtn = document.querySelector('#submit-button');
 const cancelBtn = document.querySelector('#cancel-button');
-const bookTitle_input = document.querySelector('#book-title-input');
-const author_input = document.querySelector('#author-input');
-const pages_input = document.querySelector('#pages-input');
-const read_input = document.querySelector('#read-checkbox');
+let bookTitle_input = document.querySelector('#book-title-input');
+let author_input = document.querySelector('#author-input');
+let pages_input = document.querySelector('#pages-input');
+let read_input = document.querySelector('#read-checkbox');
 const bookContainer = document.querySelector('#books-container');
+const duplicateErrorMessage = document.querySelector('#duplicate-book-error')
 
 addBook.addEventListener('click', () => {
     dialog.showModal();
@@ -14,7 +15,17 @@ addBook.addEventListener('click', () => {
 
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    for (let books of myLibrary) {
+        if (bookTitle_input.value == books.title) {
+            duplicateErrorMessage.style.display = 'block';
+            return
+        } else {
+            duplicateErrorMessage.style.display = 'none';
+        }
+    }
+
     const book = new Book(bookTitle_input.value, author_input.value, pages_input.value, read_input.checked)
+    resetInputs()
     addBookToLirary(book);
     displayBooks();
     dialog.close()
@@ -22,11 +33,15 @@ submitBtn.addEventListener('click', (e) => {
 
 cancelBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    resetInputs()
+    duplicateErrorMessage.style.display = 'none';
     dialog.close();
 });
 
 
 let myLibrary = [];
+
+
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -38,6 +53,13 @@ function Book(title, author, pages, read) {
 function addBookToLirary(book) {
     myLibrary.push(book)
 };
+
+function resetInputs() {
+    bookTitle_input.value = '';
+    author_input.value = '';
+    pages_input.value = '';
+    read_input.checked = false;
+}
 
 function displayBooks() {
     while (bookContainer.firstChild) {
@@ -55,7 +77,7 @@ function displayBooks() {
             reading_status_class = 'not-read'
         }
         card.innerHTML = `
-            <div class="book-title">${book.title}</div>
+            <div class="book-title">"${book.title}"</div>
             <div class="author">${book.author}</div>
             <div class="pages">${book.pages} pages</div>
             <button class="read-or-not ${reading_status_class}">${reading_status}</button>
