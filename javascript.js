@@ -58,7 +58,7 @@ function displayBooks() {
             <div class="book-title">${book.title}</div>
             <div class="author">${book.author}</div>
             <div class="pages">${book.pages} pages</div>
-            <button class="${reading_status_class}">${reading_status}</button>
+            <button class="read-or-not ${reading_status_class}">${reading_status}</button>
             <button class="remove">Remove</button>
         `;
         
@@ -71,15 +71,31 @@ function displayBooks() {
                 const container = e.target.closest('.card')
                 if (container) {
                     const bookId = Number(container.getAttribute('data_book_num'));
-                    console.log(myLibrary[0])
                     myLibrary.splice(bookId, 1)
                     container.remove();
-                    console.log(bookId)
                 }
                 displayBooks();
         })
     });
     
+    const read_button = document.querySelectorAll('.read-or-not');
+    read_button.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const container = e.target.closest('.card')
+            const bookId = Number(container.getAttribute('data_book_num'));
+            if (button.classList.contains('read')){
+                button.classList.remove('read')
+                button.classList.add('not-read')
+                button.textContent = 'Not Read'
+                myLibrary[bookId].read = false;
+            } else {
+                button.classList.remove('not-read')
+                button.classList.add('read')
+                button.textContent = 'Read'
+                myLibrary[bookId].read = true
+            }
+        })
+    })
 };
 
 
