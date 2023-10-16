@@ -1,0 +1,221 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+
+/* GENERAL SETTINGS */
+
+:root {
+    --white: #F0F5F9;
+    --grey: #C9D6DF;
+    --dark-grey: #52616B;
+    --black: #1E2022;
+    --light-red: #FAAEAE;
+    --light-green: #DAE8BC;
+    --container-width: 1200px;
+    --border-radius: 8px;
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 40px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Poppins',courier, sans-serif;
+    color: var(--black);
+    
+}
+
+header,
+footer {
+    background-color: var(--white);
+}
+
+/* HEADER */
+
+header {
+    z-index: 1;
+    box-shadow: 0 2.5px 10px var(--dark-grey);
+    display: flex;
+    justify-content: center;
+}
+
+#title {
+    flex: 1;
+    max-width: var(--container-width);
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+
+
+/* MAIN CONTENT */
+
+main {
+    flex: 1;
+    text-align: center;
+    padding: var(--spacing-sm);
+    background-color: var(--grey);
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+#books-container {
+    margin: 0 auto;
+    max-width: var(--container-width);
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+.card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-md);
+    font-size: 1.5rem;
+    gap: var(--spacing-md);
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -2.5px 10px var(--dark-grey);
+    padding: var(--spacing-md);
+}
+
+/* UTIL */
+
+button {
+    transition: filter 0.3s;
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+}
+
+#submit-button,
+#cancel-button {
+    font-size: 1.5rem;
+    width: 100%;
+    padding: var(--spacing-md);
+}
+
+#cancel-button {
+    background-color: var(--white);
+}
+
+
+#add-book-button {
+    background: var(--grey);
+    color: inherit;
+    font-size: 2rem;
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-sm);
+}
+.read,
+.remove {
+    color: inherit;
+    font-size: inherit;
+    padding: 15px 0;
+}
+
+.remove{
+    background-color: var(--grey);
+}
+
+.read,
+#submit-button {
+    background-color: var(--light-green);
+}
+
+.not-read {
+    background-color: var(--light-red);
+}
+
+button:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+}
+
+/* DIALOG */
+
+dialog {
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    bottom: 50%;
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: var(--grey);
+}
+
+::backdrop {
+    background-color: var(--black);
+    opacity: 0.75;
+}
+
+#checkbox-container {
+    display: flex;
+    font-weight: 100;
+}
+
+input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+    accent-color: var(--black);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+form input{
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    padding: var(--spacing-sm);
+    font-size: inherit;
+    background-color: var(--white);
+    cursor: pointer;
+}

@@ -8,19 +8,41 @@
     <script src="javascript.js" defer></script>
 </head>
 <body>
+    <dialog>
+        <form action="dialog">
+            <legend>Add new book</legend>
+            <input type="text" placeholder="Title" required>
+            <input type="text" placeholder="Author" required>
+            <input type="number" placeholder="Pages">
+            <label id="checkbox-container" for="read-checkbox">
+                <p>Have you read it?</p>
+                <input id="read-checkbox" type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <button id="submit-button">Submit</button>
+            <button id="cancel-button">Cancel</button>
+        </form>
+    </dialog>
+
     <header>
-        <div id="title">The Librarys</div>
+        <div id="title">The Library</div>
     </header>
     <main>
-        <div id="button-container">
-            <button id="add-book">+ Add Book</button>
+        <div id="add-book-button-container">
+            <button id="add-book-button">+ Add Book</button>
         </div>
-        <div id="book-container">
-            <div id="card"></div>
-            <div id="card"></div>
-            <div id="card"></div>
-            <div id="card"></div>
-            <div id="card"></div>
+        <div id="books-container">
+            <div class="card">
+                <div class="book-title">"Lord of the Rings</div>
+                <div class="author">J R Tolkein</div>
+                <div class="pages">456 pages</div>
+                <button class="read">Read</button>
+                <button class="remove">Remove</button>
+            </div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
         </div>
     </main>
     <footer>
