@@ -11,13 +11,12 @@
     <dialog>
         <form action="dialog">
             <legend>Add new book</legend>
-            <input type="text" placeholder="Title" required>
-            <input type="text" placeholder="Author" required>
-            <input type="number" placeholder="Pages">
+            <input id="book-title-input" type="text" placeholder="Title" required>
+            <input id="author-input" type="text" placeholder="Author" required>
+            <input id="pages-input" type="number" placeholder="Pages">
             <label id="checkbox-container" for="read-checkbox">
                 <p>Have you read it?</p>
-                <input id="read-checkbox" type="checkbox">
-                <span class="checkmark"></span>
+                <input id="read-checkbox" type="checkbox" checked>
             </label>
             <button id="submit-button">Submit</button>
             <button id="cancel-button">Cancel</button>
@@ -39,10 +38,6 @@
                 <button class="read">Read</button>
                 <button class="remove">Remove</button>
             </div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
         </div>
     </main>
     <footer>
