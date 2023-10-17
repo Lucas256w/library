@@ -19,6 +19,7 @@ addBook.addEventListener('click', () => {
 
 // upload book, dont and show error if book title already exist
 submitBtn.addEventListener('click', (e) => {
+    bookTitle_input.value = bookTitle_input.value.trim()
     if (bookTitle_input.value == '' || author_input.value == '' || pages_input.value ==''){
         return
     }
