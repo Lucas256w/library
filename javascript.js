@@ -88,11 +88,13 @@ function displayBooks() {
             reading_status_class = 'not-read'
         }
         card.innerHTML = `
-            <div class="book-title">"${book.title}"</div>
-            <div class="author">${book.author}</div>
-            <div class="pages">${book.pages} pages</div>
-            <button class="read-or-not ${reading_status_class}">${reading_status}</button>
-            <button class="remove">Remove</button>
+            <p class="book-title">"${book.title}"</p>
+            <p class="author">${book.author}</p>
+            <p class="pages">${book.pages} pages</p>
+            <div class="button-group">
+                <button class="read-or-not ${reading_status_class}">${reading_status}</button>
+                <button class="remove">Remove</button>
+            </div>
         `;
         
         bookContainer.appendChild(card);

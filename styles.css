@@ -46,6 +46,7 @@ body {
     min-height: 100vh;
     font-family: 'Poppins',courier, sans-serif;
     color: var(--black);
+    word-wrap: break-word;
     
 }
 
@@ -115,12 +116,32 @@ main {
 
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: var(--spacing-md);
     font-size: 1.5rem;
     gap: var(--spacing-md);
 
     box-shadow: 1.5px 1.5px 5px var(--dark-grey);
 }
+
+
+.button-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.book-title,
+.author,
+.pages {
+    flex: 1;
+    display: flex;
+    word-break: break-word;
+    justify-content: center;
+    align-items: end;
+}
+
 
 /* FOOTER */
 
